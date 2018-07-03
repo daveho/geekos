@@ -1,0 +1,25 @@
+To build
+
+ cd build/x86/
+ make
+
+
+Run with qemu
+
+ qemu -kernel kernel/geekos.exe
+
+or
+
+ qemu -cdrom boot.iso
+
+and to test hard drive recognition create an empty device image,
+e.g. `dd if=/dev/zero of=./hda.img bs=512 count=100000` and
+
+ qemu -kernel kernel/geekos.exe -hda hda.img
+
+
+Make bootable usb-stick
+
+ sudo dd if=boot.iso of=/dev/sdb && sync
+
+and replace `sdb` as needed 

@@ -1,0 +1,17 @@
+Everything that is shared between two files goes to .h file, otherwise to .c file.
+
+Everything arch specific goes to x86 everything abstract to kernel or geekos, respectively.
+
+What happens if variable (declaration) is abstract and its definition/value is arch specific?
+Possibilities
+a) declare and define in `include/x86/arch/*.h` and include from `include/geekos`
+  (For `#define` this is the only option?)
+
+What should happen to a function that is not hardware dependent but private?
+(Probably then it should be in `src/kernel/*.c` and not in declared any header.
+ If that causes problems because it is actually used in `src/x86/kernel/x86_*.c` file,
+ then maybe the whole module should be split.
+ Example: Driver needs a data-structure that is not hardware dependent. Than probably
+ there should be a separate module implementing the data-structure.)
+
+--Matthias

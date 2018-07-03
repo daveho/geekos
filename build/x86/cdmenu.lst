@@ -1,0 +1,7 @@
+default 0
+
+timeout 15
+
+title GeekOS
+root (cd)
+kernel /geekos.exe
